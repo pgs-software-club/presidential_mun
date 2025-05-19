@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>View Registrations - Presidential MUN</title>
+    <link rel="stylesheet" href="{{url_for('static',filename='styles.css')}}" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+    />
+    <style>
+      .registrations-container {
+        padding: 2rem;
+        max-width: 1200px;
+        margin: 0 auto;
+      }
+
+      .search-filters {
+        margin-bottom: 2rem;
+        display: flex;
+        gap: 1rem;
+        flex-wrap: wrap;
+      }
+
+      .search-filters input,
+      .search-filters select {
+        padding: 0.5rem;
+        border: 1px solid #ddd;
+        border-radius: 4px;
+        min-width: 200px;
+      }
+
+      .registrations-table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 1rem;
+        background: white;
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+      }
+
+      .registrations-table th,
+      .registrations-table td {
+        padding: 1rem;
+        text-align: left;
+        border-bottom: 1px solid #ddd;
+      }
+
+      .registrations-table th {
+        background-color: #f8f9fa;
+        font-weight: 600;
+      }
+
+      .registrations-table tr:hover {
+        background-color: #f8f9fa;
+      }
+
+      .action-buttons {
+        display: flex;
+        gap: 0.5rem;
+      }
+
+      .action-buttons button {
+        padding: 0.5rem;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        color: white;
+      }
+
+      .view-btn {
+        background-color: #007bff;
+      }
+
+      .edit-btn {
+        background-color: #28a745;
+      }
+
+      .delete-btn {
+        background-color: #dc3545;
+      }
+
+      .pagination {
+        display: flex;
+        justify-content: center;
+        gap: 0.5rem;
+        margin-top: 2rem;
+      }
+
+      .pagination button {
+        padding: 0.5rem 1rem;
+        border: 1px solid #ddd;
+        background: white;
+        cursor: pointer;
+      }
+
+      .pagination button.active {
+        background: #007bff;
+        color: white;
+        border-color: #007bff;
+      }
+
+      .modal {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.5);
+        z-index: 2000;
+      }
+
+      .modal-wrapper {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        padding: 80px 1rem 1rem;
+        overflow-y: auto;
+        display: flex;
+        align-items: flex-start;
+        justify-content: center;
+      }
+
+      .modal-content {
+        background: white;
+        width: 90%;
+        max-width: 800px;
+        padding: 2rem;
+        border-radius: 8px;
+        position: relative;
+        margin: 0 auto;
+      }
+
+      .close-modal {
+        position: absolute;
+        right: 1rem;
+        top: 1rem;
+        font-size: 1.5rem;
+        cursor: pointer;
+        background: white;
+        padding: 0.5rem;
+        z-index: 1;
+        border-radius: 50%;
+        width: 40px;
+        height: 40px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      }
+
+      .user-details {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1.5rem;
+        margin-top: 1rem;
+      }
+
+      .user-details div {
+        margin-bottom: 1rem;
+      }
+
+      .user-details label {
+        font-weight: 600;
+        display: block;
+        margin-bottom: 0.5rem;
+      }
+    </style>
+  </head>
+  <body>
+    <nav class="top-nav">
+      <div class="nav-container">
+        <div class="logo">
+          <img
+            src="https://presidential.edu.np/file-manager/photos/1/logo.svg"
+            alt="Presidential Graduate School Logo"
+          />
+        </div>
+        <div class="nav-links">
+          <a href="index.html">Home</a>
+          <a href="#about">About</a>
+          <a href="#" onclick="logout()" style="color: #dc3545">Logout</a>
+        </div>
+      </div>
+    </nav>
+
+    <div class="registrations-container">
+      <h1>Registered Participants</h1>
+
+      <table class="registrations-table">
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Phone</th>
+            <th>Committee</th>
+            <th>Payment Status</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <!-- Sample data - will be replaced with database data -->
+          <tr>
+            <td>John Doe</td>
+            <td>john.doe@example.com</td>
+            <td>9841234567</td>
+            <td>UNHRC</td>
+            <td>Paid</td>
+            <td class="action-buttons">
+              <button class="view-btn" onclick="viewDetails(1)">View</button>
+            </td>
+          </tr>
+          <tr>
+            <td>Jane Smith</td>
+            <td>jane.smith@example.com</td>
+            <td>9847654321</td>
+            <td>UNSC</td>
+            <td>Pending</td>
+            <td class="action-buttons">
+              <button class="view-btn" onclick="viewDetails(2)">View</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- Modal for viewing user details -->
+    <div id="userModal" class="modal">
+      <div class="modal-wrapper">
+        <div class="modal-content">
+          <span class="close-modal" onclick="closeModal()">&times;</span>
+          <h2>Participant Details</h2>
+          <div class="user-details">
+            <div>
+              <label>Full Name:</label>
+              <p>John Doe</p>
+            </div>
+            <div>
+              <label>Email:</label>
+              <p>john.doe@example.com</p>
+            </div>
+            <div>
+              <label>Phone Numbers:</label>
+              <p>Primary: 9841234567</p>
+              <p>Secondary: 9841234568</p>
+              <p>WhatsApp: 9841234567</p>
+            </div>
+            <div>
+              <label>Address:</label>
+              <p>123 Main Street, Kathmandu</p>
+            </div>
+            <div>
+              <label>Date of Birth:</label>
+              <p>2000-01-01</p>
+            </div>
+            <div>
+              <label>Food Preference:</label>
+              <p>Vegetarian</p>
+            </div>
+            <div>
+              <label>Previous College:</label>
+              <p>ABC College</p>
+            </div>
+            <div>
+              <label>Stream:</label>
+              <p>Science</p>
+            </div>
+            <div>
+              <label>Previous MUN Experience:</label>
+              <p>Yes</p>
+            </div>
+            <div>
+              <label>Committee Preferences:</label>
+              <p>Primary: UNHRC</p>
+              <p>Secondary: UNSC</p>
+            </div>
+            <div>
+              <label>Contribution Statement:</label>
+              <p>Young leaders can contribute by...</p>
+            </div>
+            <div>
+              <label>Goals Statement:</label>
+              <p>My goals align with MUN by...</p>
+            </div>
+            <div>
+              <label>Medical Conditions:</label>
+              <p>None</p>
+            </div>
+            <div>
+              <label>Payment Status:</label>
+              <p>Paid</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <footer>
+      <div class="footer-content">
+        <div class="footer-section">
+          <h3>Contact Us</h3>
+          <p>Email: events@presidential.edu.np</p>
+          <p>Phone: 9863033533, 9863591380, 9843018012</p>
+        </div>
+        <div class="footer-section">
+          <h3>Quick Links</h3>
+          <a href="#about">About</a>
+        </div>
+        <div class="footer-section">
+          <h3>Follow Us</h3>
+          <div class="social-links">
+            <a
+              href="https://www.facebook.com/Presidential.Graduate.School"
+              target="_blank"
+              ><i class="fab fa-facebook"></i
+            ></a>
+            <a
+              href="https://www.instagram.com/presidential.mun?igsh=MTdjc2FjZmlmZWgwMw=="
+              target="_blank"
+              ><i class="fab fa-instagram"></i
+            ></a>
+            <a href="https://www.linkedin.com/school/18664035" target="_blank"
+              ><i class="fab fa-linkedin"></i
+            ></a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2025 Presidential Graduate School. All rights reserved.</p>
+      </div>
+    </footer>
+
+    <!-- <script>
+      // Check login status
+      window.onload = function () {
+        if (sessionStorage.getItem("isLoggedIn") !== "true") {
+          window.location.href = "login.html";
+        }
+      };
+
+      function logout() {
+        sessionStorage.removeItem("isLoggedIn");
+        window.location.href = "login.html";
+      }
+
+      function viewDetails(id) {
+        document.getElementById("userModal").style.display = "block";
+      }
+
+      function closeModal() {
+        document.getElementById("userModal").style.display = "none";
+      }
+
+      // Close modal when clicking outside
+      window.onclick = function (event) {
+        if (event.target == document.getElementById("userModal")) {
+          closeModal();
+        }
+      };
+    </script> -->
+  </body>
+</html>

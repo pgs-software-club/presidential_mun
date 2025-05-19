@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Presidential Model United Nations - Registration</title>
+    <link rel="stylesheet" href="{{url_for('static',filename='styles.css')}}" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+    />
+  </head>
+  <body>
+    <nav class="top-nav">
+      <div class="nav-container">
+        <div class="logo">
+          <img
+            src="https://presidential.edu.np/file-manager/photos/1/logo.svg"
+            alt="Presidential Graduate School Logo"
+          />
+        </div>
+        <div class="nav-links">
+          <a href="#about">About</a>
+          <a href="#registration">Register</a>
+          <a href="login">Admin Login</a>
+        </div>
+      </div>
+    </nav>
+
+    <section class="hero" id="about">
+      <div class="hero-content">
+        <h1>PRESIDENTIAL MODEL UNITED NATIONS</h1>
+        <p class="subtitle">Cultivating Global Leaders of Tomorrow</p>
+        <a href="#registration" class="cta-button">Register Now</a>
+      </div>
+    </section>
+
+    <main>
+      <section class="section" id="about-section">
+        <h2>About Presidential MUN</h2>
+        <p>
+          Entering its exciting first edition, Presidential Model United Nations
+          (Presidential MUN) is a premier national-level simulation of the
+          United Nations, hosted by Presidential Graduate School. Designed
+          specifically for high school graduates, this initiative aims to
+          cultivate global awareness, critical thinking, and diplomatic dialogue
+          among Nepal's emerging youth leaders.
+        </p>
+        <p>
+          Presidential MUN offers a dynamic platform for participants to step
+          into the shoes of global delegates, debate pressing international
+          issues, and draft actionable resolutions. It's not just a
+          competition—it's an immersive leadership experience focused on public
+          speaking, teamwork, and international relations.
+        </p>
+      </section>
+
+      <section class="section">
+        <h2>Guidelines</h2>
+        <ul>
+          <li>
+            <strong>Event Type:</strong> Individual Participation (Delegates
+            will be assigned countries post-registration)
+          </li>
+          <li><strong>Event Scope:</strong> National (All over Nepal)</li>
+          <li>
+            <strong>Eligibility:</strong> High School Graduates (Students
+            awaiting results are also eligible)
+          </li>
+        </ul>
+      </section>
+
+      <section class="section">
+        <h2>Event Timeline</h2>
+        <ul>
+          <li><strong>Registration Deadline:</strong> 23rd June</li>
+          <li>
+            <strong>Country Allotment & Study Guide Release:</strong> 23rd June
+            - 26th June
+          </li>
+          <li><strong>Event Dates:</strong> 27th - 29th June 2025</li>
+          <ul>
+            <li>27th: Day 1</li>
+            <li>28th: Day 2</li>
+            <li>
+              29th: Final Debates, Resolution Presentation & Awards Ceremony
+            </li>
+          </ul>
+        </ul>
+      </section>
+
+      <section class="section">
+        <h2>Event Highlights</h2>
+        <ul>
+          <li>Realistic UN Committee Simulations</li>
+          <li>Guided MUN Training Workshops</li>
+          <li>Cultural Night & Networking Sessions</li>
+          <li>Socialization & Recreational Camp</li>
+          <li>Awards & Certificates</li>
+          <li>Career-Building Opportunity</li>
+          <li>First-of-its-Kind Experience for High School Graduates</li>
+          <li>National-Level Recognition</li>
+          <li>Certificate of Participation & Excellence</li>
+          <li>Skill Development in Public Speaking, Diplomacy & Research</li>
+          <li>Connect with Like-Minded Peers from Across the Country</li>
+          <li>
+            Recognition for Top Performers (Best Delegate, Outstanding Delegate)
+          </li>
+          <li>Exclusive Scholarship benefits for undergraduate programs</li>
+        </ul>
+      </section>
+
+      <section class="section" id="registration">
+        <h2>Registration Form</h2>
+        <form
+          id="registrationForm"
+          enctype="multipart/form-data"
+          method="post"
+          onsubmit="return validateForm(event)"
+        >
+          <div class="form-group">
+            <label>First Name <span class="required">*</span></label>
+            <input type="text" name="firstName" required />
+          </div>
+
+          <div class="form-group">
+            <label>Last Name <span class="required">*</span></label>
+            <input type="text" name="lastName" required />
+          </div>
+
+          <div class="form-group">
+            <label>Email <span class="required">*</span></label>
+            <input type="email" name="email" required />
+          </div>
+
+          <div class="form-group">
+            <label>Current Address <span class="required">*</span></label>
+            <input type="text" name="address" required />
+          </div>
+
+          <div class="form-group">
+            <label>Date of Birth <span class="required">*</span></label>
+            <input type="date" name="dob" />
+          </div>
+
+          <div class="form-group">
+            <label>Primary Phone Number <span class="required">*</span></label>
+            <input type="tel" name="primaryPhone" required />
+          </div>
+
+          <div class="form-group">
+            <label>Secondary Phone Number</label>
+            <input type="tel" name="secondaryPhone" />
+          </div>
+
+          <div class="form-group">
+            <label>WhatsApp Number</label>
+            <input type="tel" name="whatsappNumber" />
+          </div>
+
+          <div class="form-group">
+            <label>Food Preference <span class="required">*</span></label>
+            <select name="foodPref">
+              <option value="">Select Preference</option>
+              <option value="vegetarian">Vegetarian</option>
+              <option value="non-vegetarian">Non-Vegetarian</option>
+              <option value="vegan">Vegan</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label
+              >Previously Enrolled College
+              <span class="required">*</span></label
+            >
+            <input type="text" name="prevEnroll" />
+          </div>
+
+          <div class="form-group">
+            <label>Stream <span class="required">*</span></label>
+            <select name="stream">
+              <option value="">Select Stream</option>
+              <option value="science">Science</option>
+              <option value="management">Management</option>
+              <option value="humanities">Humanities</option>
+              <option value="other">Other</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label
+              >Have you done any MUN's before this?
+              <span class="required">*</span></label
+            >
+            <div class="radio-group">
+              <label
+                ><input type="radio" name="alreadyMun" value="yes" /> Yes</label
+              >
+              <label
+                ><input type="radio" name="alreadyMun" value="no" /> No</label
+              >
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label
+              >What committee would you like to be a part of?
+              <span class="required">*</span></label
+            >
+            <select name="committee" required>
+              <option value="">Select Committee</option>
+              <option value="UNHRC">United Nations Human Rights Council</option>
+              <option value="UNSC">United Nations Security Council</option>
+              <option value="DISEC">
+                Disarmament and International Security Committee
+              </option>
+              <option value="CCPCJ">
+                United Nations Commission on Crime Prevention and Criminal
+                Justice
+              </option>
+              <option value="CND">
+                United Nations Commission on Narcotic Drugs
+              </option>
+              <option value="ECOSOC">Economic and Social Council</option>
+              <option value="CSW">
+                United Nations Commission on Status of Women
+              </option>
+              <option value="IPC">International Press Corps</option>
+              <option value="SOCHUM">
+                Social, Humanitarian and Cultural Committee
+              </option>
+              <option value="UNEP">United Nations Environment Programme</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label
+              >Secondary Committee Preference
+              <span class="required">*</span></label
+            >
+            <select name="secondaryCommittee" required>
+              <option value="">Select Committee</option>
+              <option value="UNHRC">United Nations Human Rights Council</option>
+              <option value="UNSC">United Nations Security Council</option>
+              <option value="DISEC">
+                Disarmament and International Security Committee
+              </option>
+              <option value="CCPCJ">
+                United Nations Commission on Crime Prevention and Criminal
+                Justice
+              </option>
+              <option value="CND">
+                United Nations Commission on Narcotic Drugs
+              </option>
+              <option value="ECOSOC">Economic and Social Council</option>
+              <option value="CSW">
+                United Nations Commission on Status of Women
+              </option>
+              <option value="IPC">International Press Corps</option>
+              <option value="SOCHUM">
+                Social, Humanitarian and Cultural Committee
+              </option>
+              <option value="UNEP">United Nations Environment Programme</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label
+              >How can young leaders in Nepal contribute to solving global
+              issues while remaining rooted in their local communities?
+              <span class="required">*</span></label
+            >
+            <textarea name="globalIssue" required></textarea>
+          </div>
+
+          <div class="form-group">
+            <label
+              >Describe how participating in the Presidential Model United
+              Nations aligns with your future academic or professional goals.
+              <span class="required">*</span></label
+            >
+            <textarea name="futureGoal" required></textarea>
+          </div>
+
+          <div class="form-group">
+            <label
+              >Do you suffer from any medical conditions?
+              <span class="required">*</span></label
+            >
+            <textarea name="medicalCondition" required></textarea>
+          </div>
+          <section class="section" id="payment">
+            <h2>Payment Information <span class="required">*</span></h2>
+            <div class="payment-container">
+              <div class="qr-code">
+                <img
+                  src="{{url_for('static',filename='img/esewa_qr.png')}}"
+                  alt="eSewa Payment QR Code"
+                />
+                <p>Scan to pay registration fee via eSewa</p>
+              </div>
+              <div class="payment-upload">
+                <h3>Upload Payment Proof <span class="required">*</span></h3>
+                <input
+                  type="file"
+                  name="paymentSlip"
+                  accept="image/*"
+                  id="paymentSlip"
+                  required
+                />
+              </div>
+            </div>
+          </section>
+
+          <div class="submit-container">
+            <button type="submit" form="registrationForm" class="submit-btn">
+              Submit Registration
+            </button>
+          </div>
+        </form>
+      </section>
+    </main>
+
+    <footer>
+      <div class="footer-content">
+        <div class="footer-section">
+          <h3>Contact Us</h3>
+          <p>Email: events@presidential.edu.np</p>
+          <p>Phone: 9863033533, 9863591380, 9843018012</p>
+        </div>
+        <div class="footer-section">
+          <h3>Quick Links</h3>
+          <a href="#about">About</a>
+          <a href="#registration">Register</a>
+        </div>
+        <div class="footer-section">
+          <h3>Follow Us</h3>
+          <div class="social-links">
+            <a
+              href="https://www.facebook.com/Presidential.Graduate.School"
+              target="_blank"
+              ><i class="fab fa-facebook"></i
+            ></a>
+            <a
+              href="https://www.instagram.com/presidential.mun?igsh=MTdjc2FjZmlmZWgwMw=="
+              target="_blank"
+              ><i class="fab fa-instagram"></i
+            ></a>
+            <a href="https://www.linkedin.com/school/18664035" target="_blank"
+              ><i class="fab fa-linkedin"></i
+            ></a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2025 Presidential Graduate School. All rights reserved.</p>
+      </div>
+    </footer>
+
+    <script>
+      function validateForm(event) {
+        event.preventDefault();
+
+        const form = document.getElementById("registrationForm");
+        const formData = new FormData(form);
+
+        fetch("/register", {
+          method: "POST",
+          body: formData,
+        })
+          .then((response) => {
+            if (!response.ok) {
+              return response.json().then((err) => {
+                throw err;
+              });
+            }
+            return response.json();
+          })
+          .then((data) => {
+            if (data.success) {
+              // Show success message and reset form
+              alert(data.message);
+              form.reset();
+
+              // Scroll to top or show confirmation section
+              // window.scrollTo({ top: 0, behavior: "smooth" });
+
+              // Optionally redirect or show confirmation
+              window.location.href = "/";
+            }
+          })
+          .catch((error) => {
+            console.error("Error:", error);
+            alert(error.error || "An error occurred. Please try again.");
+          });
+
+        return false;
+      }
+
+      // Add event listeners for form validation
+      document.addEventListener("DOMContentLoaded", function () {
+        const form = document.getElementById("registrationForm");
+
+        // Phone number validation
+        const phoneInputs = form.querySelectorAll('input[type="tel"]');
+        phoneInputs.forEach((input) => {
+          input.addEventListener("input", function () {
+            this.value = this.value.replace(/[^0-9]/g, "");
+            if (this.value.length > 10) {
+              this.value = this.value.slice(0, 10);
+            }
+          });
+        });
+
+        // Committee selection validation
+        const primaryCommittee = form.querySelector('[name="committee"]');
+        const secondaryCommittee = form.querySelector(
+          '[name="secondaryCommittee"]'
+        );
+
+        function validateCommittees() {
+          if (
+            primaryCommittee.value &&
+            primaryCommittee.value === secondaryCommittee.value
+          ) {
+            alert(
+              "Primary and secondary committee preferences cannot be the same"
+            );
+            secondaryCommittee.value = "";
+          }
+        }
+
+        primaryCommittee.addEventListener("change", validateCommittees);
+        secondaryCommittee.addEventListener("change", validateCommittees);
+
+        // Text area minimum length validation
+        const textAreas = form.querySelectorAll("textarea[minlength]");
+        textAreas.forEach((textarea) => {
+          textarea.addEventListener("input", function () {
+            const minLength = this.getAttribute("minlength");
+            const remaining = minLength - this.value.length;
+
+            if (remaining > 0) {
+              this.setCustomValidity(
+                `Please enter at least ${remaining} more characters`
+              );
+            } else {
+              this.setCustomValidity("");
+            }
+          });
+        });
+      });
+    </script>
+  </body>
+</html>

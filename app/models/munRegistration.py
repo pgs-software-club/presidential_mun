@@ -1,0 +1,25 @@
+from app import db
+from datetime import datetime
+
+class MunRegistration(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    first_name = db.Column(db.String(100), nullable=False)
+    last_name = db.Column(db.String(100), nullable=False)
+    email = db.Column(db.String(120), unique=True, nullable=False)
+    address = db.Column(db.String(200), nullable=False)
+    dob = db.Column(db.Date, nullable=False)
+    primary_phone = db.Column(db.String(15), nullable=False)
+    secondary_phone = db.Column(db.String(15))
+    whatsapp_number = db.Column(db.String(15))
+    food_preference = db.Column(db.String(20), nullable=False)
+    previous_college = db.Column(db.String(150), nullable=False)
+    stream = db.Column(db.String(50), nullable=False)
+    mun_experience = db.Column(db.Boolean, nullable=False)
+    primary_committee = db.Column(db.String(100), nullable=False)
+    secondary_committee = db.Column(db.String(100), nullable=False)
+    global_issue_response = db.Column(db.Text, nullable=False)
+    future_goals = db.Column(db.Text, nullable=False)
+    medical_conditions = db.Column(db.Text, nullable=False)
+    payment_proof = db.Column(db.String(200), nullable=False)
+    registration_date = db.Column(db.DateTime, default=datetime.utcnow)
+    payment_verified = db.Column(db.Boolean, default=False)
