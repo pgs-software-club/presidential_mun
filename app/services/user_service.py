@@ -1,9 +1,11 @@
 from app.models import User
 from app import db
+from app.models.user import User
 
 class UserService:
     @staticmethod
-    def create_user(username, email):
+    def create_user(username, password):
+        hashPassword = User.set_password(password=password)
         user = User(username=username, email=email)
         db.session.add(user)
         db.session.commit()

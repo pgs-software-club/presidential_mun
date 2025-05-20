@@ -6,6 +6,11 @@
     <title>Admin Login - Presidential MUN</title>
     <link rel="stylesheet" href="{{url_for('static',filename='styles.css')}}" />
     <link
+      rel="shortcut icon"
+      href="{{url_for('static',filename='img/image.png')}}"
+      type="image/x-icon"
+    />
+    <link
       href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
       rel="stylesheet"
     />
@@ -109,10 +114,12 @@
     <nav class="top-nav">
       <div class="nav-container">
         <div class="logo">
-          <img
-            src="https://presidential.edu.np/file-manager/photos/1/logo.svg"
-            alt="Presidential Graduate School Logo"
-          />
+          <a href="/">
+            <img
+              src="https://presidential.edu.np/file-manager/photos/1/logo.svg"
+              alt="Presidential Graduate School Logo"
+            />
+          </a>
         </div>
         <div class="nav-links">
           <a href="/">Home</a>
@@ -123,7 +130,18 @@
     <div class="login-container">
       <div class="login-box">
         <h1>Admin Login</h1>
-        <form id="loginForm" onsubmit="return validateForm(event)">
+        {% with messages = get_flashed_messages(with_categories=true) %} {% if
+        messages %} {% for category, message in messages %}
+        <div class="alert alert-{{ category }} alert-dismissible fade show">
+          <p style="text-align: center; color: red">{{message}}</p>
+        </div>
+        {% endfor %} {% endif %} {% endwith %}
+        <form
+          id="loginForm"
+          method="post"
+          action="/login"
+          onsubmit="return validateForm(event)"
+        >
           <div class="form-group">
             <label for="username">Username</label>
             <input
@@ -195,54 +213,54 @@
     </footer>
 
     <script>
-      function validateForm(event) {
-        event.preventDefault();
+      // function validateForm(event) {
+      //   event.preventDefault();
 
-        const username = document.getElementById("username");
-        const password = document.getElementById("password");
-        const usernameError = document.getElementById("username-error");
-        const passwordError = document.getElementById("password-error");
+      //   const username = document.getElementById("username");
+      //   const password = document.getElementById("password");
+      //   const usernameError = document.getElementById("username-error");
+      //   const passwordError = document.getElementById("password-error");
 
-        let isValid = true;
+      //   let isValid = true;
 
-        // Reset error messages
-        usernameError.style.display = "none";
-        passwordError.style.display = "none";
+      //   // Reset error messages
+      //   usernameError.style.display = "none";
+      //   passwordError.style.display = "none";
 
-        // Validate username
-        if (username.value.length < 3) {
-          usernameError.style.display = "block";
-          isValid = false;
-        }
+      //   // Validate username
+      //   if (username.value.length < 3) {
+      //     usernameError.style.display = "block";
+      //     isValid = false;
+      //   }
 
-        // Validate password
-        if (password.value.length < 8) {
-          passwordError.style.display = "block";
-          isValid = false;
-        }
+      //   // Validate password
+      //   if (password.value.length < 8) {
+      //     passwordError.style.display = "block";
+      //     isValid = false;
+      //   }
 
-        if (isValid) {
-          // For demo purposes, using hardcoded credentials
-          // In production, this should be handled by a secure backend
-          if (username.value === "admin" && password.value === "admin123") {
-            // Store login state
-            sessionStorage.setItem("isLoggedIn", "true");
-            // Redirect to view registrations page
-            window.location.href = "view_registrations.html";
-          } else {
-            alert("Invalid username or password");
-          }
-        }
+      //   if (isValid) {
+      //     // For demo purposes, using hardcoded credentials
+      //     // In production, this should be handled by a secure backend
+      //     if (username.value === "admin" && password.value === "admin123") {
+      //       // Store login state
+      //       sessionStorage.setItem("isLoggedIn", "true");
+      //       // Redirect to view registrations page
+      //       window.location.href = "view_registrations.html";
+      //     } else {
+      //       alert("Invalid username or password");
+      //     }
+      //   }
 
-        return false;
-      }
+      //   return false;
+      // }
 
       // Check if user is already logged in
-      window.onload = function () {
-        if (sessionStorage.getItem("isLoggedIn") === "true") {
-          window.location.href = "view_registrations.html";
-        }
-      };
+      // window.onload = function () {
+      //   if (sessionStorage.getItem("isLoggedIn") === "true") {
+      //     window.location.href = "view_registrations.html";
+      //   }
+      // };
     </script>
   </body>
 </html>

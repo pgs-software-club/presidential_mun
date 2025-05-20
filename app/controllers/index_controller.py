@@ -5,6 +5,7 @@ from werkzeug.utils import secure_filename
 from app import db
 from app.models.munRegistration import MunRegistration
 from app import allowed_file
+from app.services import user_service
 
 main_bp = Blueprint('main', __name__)
 
@@ -74,6 +75,7 @@ def register_user():
 @main_bp.route('/add_user', methods=['POST'])
 def add_user():
     username = request.form['username']
-    email = request.form['email']
-    UserService.create_user(username, email)
+    password = request.form['password']
+
+    UserService.create_user(username, password)
     return redirect(url_for('main.index'))
