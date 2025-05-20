@@ -5,8 +5,8 @@ services:
       - "8000:8000"
     environment:
       - FLASK_ENV=production
-      - DATABASE_URL=mysql+pymysql://${user}:${password}@${host}/${database}
-      - host=${host}
+      - DATABASE_URL=mysql+pymysql://${user}:${password}@db/${database}
+      - host=db
       - database=${database}
       - user=${user}
       - password=${password}
