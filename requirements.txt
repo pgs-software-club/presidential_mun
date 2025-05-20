@@ -23,4 +23,5 @@ PyMySQL
 python-dotenv     
 SQLAlchemy        
 typing_extensions  
-Werkzeug          
+Werkzeug
+gunicorn      
