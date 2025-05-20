@@ -68,7 +68,7 @@ def register_user():
     except Exception as e:
         db.session.rollback()
         current_app.logger.error(f"Registration error: {str(e)}")
-        return jsonify({'error': str(e)}), 500
+        return jsonify({'error':'An internal error has occurred. Please try again later.'}), 500
 
 
 @main_bp.route('/add_user', methods=['POST'])
