@@ -7,6 +7,10 @@ RUN pip install -r requirements.txt
 
 COPY . .
 
+RUN chmod +x entrypoint.sh
+
 EXPOSE 8000
 
-CMD ["sh","-c","flask db upgrade","gunicorn", "-w", "4", "-b", "0.0.0.0:8000", "server:app"]
+ENTRYPOINT ["./entrypoint.sh"]
+
+# CMD ["sh","-c","flask db upgrade","gunicorn", "-w", "4", "-b", "0.0.0.0:8000", "server:app"]
