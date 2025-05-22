@@ -31,7 +31,7 @@
         <div class="nav-links">
           <a href="#about">About</a>
           <a href="#registration">Register</a>
-          <a href="login">Admin Login</a>
+          <!-- <a href="login">Admin Login</a> -->
         </div>
       </div>
     </nav>
@@ -173,7 +173,7 @@
               <option value="">Select Preference</option>
               <option value="vegetarian">Vegetarian</option>
               <option value="non-vegetarian">Non-Vegetarian</option>
-              <option value="vegan">Vegan</option>
+              <!-- <option value="vegan">Vegan</option> -->
             </select>
           </div>
 
@@ -298,6 +298,13 @@
             >
             <textarea name="medicalCondition" required></textarea>
           </div>
+          <div class="form-group">
+            <label>
+              Refered By
+              <!-- <span class="required">*</span></label> -->
+            </label>
+            <input type="text" name="referedBy" />
+          </div>
           <section class="section" id="payment">
             <h2>Payment Information <span class="required">*</span></h2>
             <div class="payment-container">
@@ -308,6 +315,9 @@
                 />
                 <p>Scan to pay registration fee via eSewa</p>
               </div>
+              <p style="font-size: 0.9rem; font-style: italic">
+                Note: Put your Full Name in your payment remarks.
+              </p>
               <div class="payment-upload">
                 <h3>Upload Payment Proof <span class="required">*</span></h3>
                 <input

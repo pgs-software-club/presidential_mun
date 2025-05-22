@@ -1,4 +1,5 @@
 import os
+import secrets
 from datetime import datetime
 from flask import Blueprint, render_template, request, jsonify, current_app
 from werkzeug.utils import secure_filename
@@ -35,6 +36,19 @@ def register_user():
         payment_slip.save(filepath)
 
         relative_path = os.path.join('uploads', filename)
+        secure_8_digit = secrets.randbelow(90000000) + 10000000
+
+        referrel_code = request.form.get("referedBy")
+        referred_by_id = None
+        
+        if referrel_code: 
+            referring_user = MunRegistration.query.filter_by(referral_code=referrel_code).first()
+            if not referring_user:
+                return jsonify({'error': 'Invalid referral code provided'}), 400
+            referred_by_id = referring_user.id
+            referring_user.number_of_referral += 1
+
+        first_name = request.form.get('firstName')
 
         new_participant = MunRegistration(
             first_name=request.form.get('firstName'),
@@ -54,7 +68,9 @@ def register_user():
             global_issue_response=request.form.get('globalIssue'),
             future_goals=request.form.get('futureGoal'),
             medical_conditions=request.form.get('medicalCondition'),
-            payment_proof=relative_path  # Store relative path
+            refered_by=referred_by_id, 
+            referral_code=f"#{first_name}-{secure_8_digit}",
+            payment_proof=relative_path
         )
 
         db.session.add(new_participant)

@@ -22,4 +22,7 @@ class MunRegistration(db.Model):
     medical_conditions = db.Column(db.Text, nullable=False)
     payment_proof = db.Column(db.String(200), nullable=False)
     registration_date = db.Column(db.DateTime, default=datetime.utcnow)
+    refered_by = db.Column(db.String(200), nullable=True)
+    number_of_referral = db.Column(db.Integer,nullable=False, default=0)
+    referral_code = db.Column(db.String(200), nullable=False, unique=True)
     payment_verified = db.Column(db.Boolean, default=False)
