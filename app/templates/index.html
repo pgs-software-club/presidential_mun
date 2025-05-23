@@ -90,8 +90,9 @@
             awaiting results are also eligible)
           </li>
           <li>
-            <strong>Refund Policy:</strong> Refunds are not available once
-            registered.
+            <strong>Refund Policy:</strong> All registration fees are
+            non-refundable after completion of registration and payment,
+            irrespective of the reason for cancellation or non-attendance.
           </li>
         </ul>
       </section>
@@ -209,6 +210,9 @@
               <option value="science">Science</option>
               <option value="management">Management</option>
               <option value="humanities">Humanities</option>
+              <option value="humanities">Law</option>
+              <option value="humanities">A-Level Science</option>
+              <option value="humanities">A-Level Non-Science</option>
               <option value="other">Other</option>
             </select>
           </div>
@@ -368,8 +372,42 @@
                   required
                 />
               </div>
+              <p style="font-size: 0.9rem; font-style: italic">
+                Note: Seats are limited and selection is competitive. Early
+                registration is highly recommended.
+              </p>
             </div>
           </section>
+
+          <div style="display: flex; gap: 2rem; flex-direction: column">
+            <!-- <p>Terms and Conditions</p> -->
+            <h2>Terms and Condition <span class="required">*</span></h2>
+            <div style="display: flex; gap: 1rem; align-items: start">
+              <input
+                type="checkbox"
+                name="infoAccess"
+                id="infoAccess"
+                required
+              />
+              <p style="margin-top: -0.4rem; font-size: 0.9rem">
+                I hereby grant Presidential MUN permission to contact me using
+                the information provided, as deemed necessary for official
+                purposes.
+              </p>
+            </div>
+            <div style="display: flex; gap: 1rem; align-items: start">
+              <input
+                type="checkbox"
+                name="infoAccurate"
+                id="infoAccurate"
+                required
+              />
+              <p style="margin-top: -0.4rem; font-size: 0.9rem">
+                I hereby confirm that all information provided in this form is
+                complete, accurate, and truthful to the best of my knowledge.
+              </p>
+            </div>
+          </div>
 
           <div class="submit-container">
             <button type="submit" form="registrationForm" class="submit-btn">

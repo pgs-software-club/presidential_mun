@@ -50,6 +50,9 @@ def register_user():
 
         first_name = request.form.get('firstName')
 
+        infoAccess = request.form.get("infoAccess")
+        infoAccurate = request.form.get("infoAccurate")
+
         new_participant = MunRegistration(
             first_name=request.form.get('firstName'),
             last_name=request.form.get('lastName'),
@@ -68,6 +71,8 @@ def register_user():
             global_issue_response=request.form.get('globalIssue'),
             future_goals=request.form.get('futureGoal'),
             medical_conditions=request.form.get('medicalCondition'),
+            infoAccess = request.form.get("infoAccess").replace("on", "yes"),
+            infoAccurate=request.form.get("infoAccurate").replace("on","yes"),
             refered_by=referred_by_id, 
             referral_code=f"#{first_name}-{secure_8_digit}",
             payment_proof=relative_path
