@@ -20,7 +20,7 @@ html {
 .top-nav {
   background-color: white;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  position: fixed;
+  position: sticky;
   width: 100%;
   top: 0;
   z-index: 1000;
@@ -56,6 +56,14 @@ html {
   color: #1a237e;
 }
 
+.nav-banner {
+  position: sticky;
+  top: 12%;
+  z-index: 999;
+  width: 100%;
+  background-color: #fffbc8;
+}
+
 /* Hero Section */
 .hero {
   background: linear-gradient(rgba(26, 35, 126, 0.9), rgba(26, 35, 126, 0.9)),
@@ -65,7 +73,7 @@ html {
   color: white;
   text-align: center;
   padding: 8rem 2rem 4rem;
-  margin-top: 70px;
+  /* margin-top: 70px; */
 }
 
 .hero-content {
@@ -305,6 +313,13 @@ footer {
   .nav-container {
     flex-direction: column;
     gap: 1rem;
+  }
+
+  .nav-banner {
+    top: 0;
+  }
+  .nav-banner > p {
+    font-size: 0.75rem;
   }
 
   .nav-links {
